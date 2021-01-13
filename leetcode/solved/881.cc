@@ -9,12 +9,16 @@ public:
 			const auto w = *it;
 			weights.erase(it);
 
-			if(w < limit) {
-				const auto it = weights.lower_bound(limit-w);
-				if(it != weights.end() && *it <= limit-w) {
-					weights.erase(it);
+			const auto another = limit - w;
+			if(!weights.empty() && *weights.begin() <= another) {
+				auto it = weights.lower_bound(another);
+				if(it==weights.end() || (it!=weights.end() && *it != another)) {
+					--it;
 				}
+
+				weights.erase(it);
 			}
+
 			carry += 1;
 		}
 
