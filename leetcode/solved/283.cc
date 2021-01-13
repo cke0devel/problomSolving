@@ -6,6 +6,7 @@ class Solution {
 public:
 	void moveZeroes(vector<int>& nums) {
 		auto zeroIter = begin(nums);
+		auto nonZeroIter = begin(nums);
 
 		while(true) {
 			zeroIter = find_if(zeroIter, end(nums), isZero);
@@ -13,7 +14,10 @@ public:
 				break;
 			}
 
-			auto nonZeroIter = find_if_not(zeroIter+1, end(nums), isZero);
+			if(distance(zeroIter, nonZeroIter) < 0) {
+				nonZeroIter = zeroIter;
+			}
+			nonZeroIter = find_if_not(nonZeroIter, end(nums), isZero);
 			if(nonZeroIter == nums.end()) {
 				break;
 			}
