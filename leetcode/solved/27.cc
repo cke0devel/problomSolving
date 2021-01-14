@@ -6,9 +6,6 @@ public:
 		if(lastIter == nums.rend()) {
 			return 0;
 		}
-		if(lastIter == nums.rbegin()) {
-			return nums.size();
-		}
 
 		auto keyIter = begin(nums);
 		while(true) {
