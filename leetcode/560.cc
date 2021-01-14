@@ -1,16 +1,18 @@
 class Solution {
 public:
 	int subarraySum(vector<int>& nums, int k) {
+		vector<int> accu = {0};
+
+		for(const auto n : nums) {
+			accu.push_back(accu.back() + n);
+		}
+
 		int cnt = 0;
-		int sum = 0;
-
-		for(int i=0,j=0; i<nums.size(); i++) {
-			sum += nums[i];
-			if(sum == k) cnt += 1;
-
-			for(;j<i && sum>k; j++) {
-				sum -= nums[j];
-				if(sum == k) cnt += 1;
+		for(int i=0; i<accu.size(); i++) {
+			for(int j=i+1; j<accu.size(); j++) {
+				if(accu[j] - accu[i] == k) {
+					cnt += 1;
+				}
 			}
 		}
 
