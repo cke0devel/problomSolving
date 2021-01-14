@@ -8,7 +8,7 @@ public:
 			sum += nums[i];
 			if(sum == k) cnt += 1;
 
-			for(;sum>k; j++) {
+			for(;j<i && sum>k; j++) {
 				sum -= nums[j];
 				if(sum == k) cnt += 1;
 			}
