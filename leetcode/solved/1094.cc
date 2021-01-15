@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool carPooling(vector<vector<int>>& trips, int capacity) {
-        set<pair<int,int>> sweep;
+        multiset<pair<int,int>> sweep;
         
         for(const auto &info : trips) {
             sweep.emplace(info[1], info[0]);
