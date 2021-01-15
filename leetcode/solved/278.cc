@@ -4,8 +4,8 @@
 class Solution {
 public:
     int firstBadVersion(int n) {
-        int low = 1;
-        int high = n;
+        long low = 1;
+        long high = n;
         
         while(low<high) {
             const int version = (low+high) / 2;
