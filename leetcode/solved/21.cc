@@ -15,10 +15,10 @@ public:
         
         ListNode *cur = &head;
         while(l1!=nullptr || l2!=nullptr) {
-            if(l1 == nullptr || l1->val > l2->val) {
+            if(l1 == nullptr || (l2 && l1->val > l2->val)) {
                 cur->next = l2;
                 l2 = l2->next;
-            } else if(l2 == nullptr || l1->val <= l2->val) {
+            } else if(l2 == nullptr || (l1 && l1->val <= l2->val)) {
                 cur->next = l1;
                 l1 = l1->next;
             }
