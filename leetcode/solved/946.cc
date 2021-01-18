@@ -8,7 +8,7 @@ public:
         for(const auto n : pushed) {
             s.push(n);
             
-            while(popIt != end(popped) && *popIt == s.top()) {
+            while(!s.empty() && popIt != end(popped) && *popIt == s.top()) {
                 s.pop();
                 ++popIt;
             }
