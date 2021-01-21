@@ -6,7 +6,7 @@ public:
         
         int cur = 0;
         while(cur < nums.size()) {
-            if(nums[cur]==0 && cur>red) {
+            if(nums[cur]==0) {
                 swap(nums[cur], nums[red]);
                 red += 1;
                 cur += 1;
