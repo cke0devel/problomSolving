@@ -8,7 +8,7 @@ public:
         
         for(int i=0; i<H; i++) {
             effort[i].resize(W);
-            fill(begin(effort[i]), end(effort[i]), 1000);
+            fill(begin(effort[i]), end(effort[i]), 1000000);
         }
         
         effort[0][0] = 0;
