@@ -12,6 +12,8 @@ public:
             if(nums[i] > nums[first]) {
                 second = first;
                 first = i;
+            } else if(nums[i] > nums[second]) {
+                second = i;
             }
         }
         
