@@ -16,21 +16,20 @@ public:
             return nullptr;
         }
         
-        TreeNode *node = new TreeNode;
-        
-        if(t1) {
-            node->val += t1->val;
-        }
-        if(t2) {
-            node->val += t2->val;
+        if(t1 && t2) {
+            t1->val += t2->val;
         }
         
-        node->left = mergeTrees(t1==nullptr ? nullptr : t1->left,
-                                t2==nullptr ? nullptr : t2->left);
+        if(t1 == nullptr) {
+            return t2;
+        }
+        if(t2 == nullptr) {
+            return t1;
+        }
         
-        node->right = mergeTrees(t1==nullptr ? nullptr : t1->right,
-                                 t2==nullptr ? nullptr : t2->right);
+        t1->left = mergeTrees(t1->left, t2->left);
+        t1->right = mergeTrees(t1->right, t2->right);
         
-        return node;
+        return t1;
     }
 };
