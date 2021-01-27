@@ -20,7 +20,12 @@ public:
 private:
     int countNodes(TreeNode* root, int idx) {
         if(root->right) {
-            return countNodes(root->right, idx*2+1);
+            if(root->right->left!=nullptr) {
+                return countNodes(root->right, idx*2+1);
+            }
+            if(root->left->left==nullptr) {
+                return idx*2 + 1;
+            }
         }
         if(root->left) {
             return countNodes(root->left, idx*2);
