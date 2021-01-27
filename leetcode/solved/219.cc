@@ -1,20 +1,19 @@
 class Solution {
 public:
     bool containsNearbyDuplicate(vector<int>& nums, int k) {
-        map<int,vector<int>> m;
-        
+        vector<pair<int,int>> v;
+ 
         for(int i=0; i<nums.size(); i++) {
-            m[nums[i]].push_back(i);
+            v.emplace_back(nums[i], i);
         }
+        sort(begin(v), end(v));
         
-        for(const auto &e : m) {
-            for(int i=1; i<e.second.size(); i++) {
-                if(e.second[i] - e.second[i-1] <= k) {
-                    return true;
-                }
+        for(int i=1; i<v.size(); i++) {
+            if(v[i].first==v[i-1].first && v[i].second-v[i-1].second <= k) {
+                return true;
             }
         }
-        
+
         return false;
     }
 };
