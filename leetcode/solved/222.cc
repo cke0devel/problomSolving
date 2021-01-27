@@ -14,23 +14,6 @@ public:
     int countNodes(TreeNode* root) {
         if(root == nullptr) return 0;
         
-        return countNodes(root, 1);
-    }
-    
-private:
-    int countNodes(TreeNode* root, int idx) {
-        if(root->right) {
-            if(root->right->left!=nullptr) {
-                return countNodes(root->right, idx*2+1);
-            }
-            if(root->left->left==nullptr) {
-                return idx*2 + 1;
-            }
-        }
-        if(root->left) {
-            return countNodes(root->left, idx*2);
-        }
-        
-        return idx;
+        return 1 + countNodes(root->left) + countNodes(root->right);
     }
 };
