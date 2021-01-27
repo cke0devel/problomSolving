@@ -7,6 +7,9 @@ public:
         dx /= gcd(dx,dy);
         dy /= gcd(dx,dy);
         
+        if(dx==0) dy=1;
+        if(dy==0) dx=1;
+        
         for(int i=2; i<coordinates.size(); i++) {
             int x = coordinates[0][0] - coordinates[i][0];
             int y = coordinates[0][1] - coordinates[i][1];
@@ -14,6 +17,9 @@ public:
             
             x /= k;
             y /= k;
+            
+            if(x==0) y=1;
+            if(y==0) x=1;
             
             if(dx!=x || dy!=y) {
                 return false;
