@@ -5,7 +5,7 @@ public:
         k %= 26;
         
         if(z+k < n) {
-            const int r = (n-(z+k)+25)/26;
+            const int r = (n-(z+k)+24)/25;
             z -= r;
             k += r*26;
         }
