@@ -11,6 +11,10 @@ public:
         }
 
         n -= z;
+        
+        if(n==0) {
+            return string(z, 'z');
+        }
 
         return string(n-1, 'a') + char('a'+k-(n-1)-1) + string(z, 'z');
     }
