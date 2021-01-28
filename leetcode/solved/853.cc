@@ -1,6 +1,8 @@
 class Solution {
 public:
     int carFleet(int target, vector<int>& position, vector<int>& speed) {
+        if(position.empty()) return 0;
+        
         vector<pair<int,int>> positions;
         
         for(int i=0; i<position.size(); i++) {
