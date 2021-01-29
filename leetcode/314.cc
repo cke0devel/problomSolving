@@ -17,7 +17,10 @@ public:
         
         vector<vector<int>> ans;
         transform(begin(m), end(m), back_inserter(ans),
-                 [](const auto &e) { return move(e.second); });
+                 [](auto &e) {
+                     sort(begin(e.second), end(e.second));
+                     return move(e.second);
+                 });
         
         return ans;
     }
