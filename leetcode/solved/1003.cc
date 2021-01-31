@@ -1,23 +1,19 @@
 class Solution {
 public:
     bool isValid(string s) {
-        if(s == "abc") {
-            return true;
-        }
+        int p = 0;
         
-        deque<char> q;
-        for(const auto c : s) {
-            q.push_back(c);
-            
-            if(q.size() >= 3 && c=='c') {
-                if(*(rbegin(q)+1)=='b' && *(rbegin(q)+2)=='a') {
-                    q.pop_back();
-                    q.pop_back();
-                    q.pop_back();
-                }
+        for(int i=0; i<s.size(); i++) {
+            if(s[i] == 'c') {
+                if(p<2) return false;
+                if(s[p-1]!='b' || s[p-2]!='a') return false;
+                p -= 2;
+            } else {
+                swap(s[i], s[p]);
+                p++;
             }
         }
         
-        return q.empty();
+        return p==0;
     }
 };
