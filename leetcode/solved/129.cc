@@ -12,13 +12,13 @@
 class Solution {
 public:
     int sumNumbers(TreeNode* root) {
+        if(root==nullptr) return 0;
+        
         return sumNumbers(root, 0);
     }
     
 private:
     int sumNumbers(TreeNode* root, const int n) {
-        if(root==nullptr) return n;
-        
         const int k = n*10 + root->val;
         
         if(root->left==nullptr && root->right==nullptr) {
