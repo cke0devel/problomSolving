@@ -12,11 +12,12 @@
 class Solution {
 public:
     TreeNode* trimBST(TreeNode* root, int low, int high) {
-        while(root!=nullptr && root->val < low) {
-            root = root->right;
-        }
-        while(root!=nullptr && root->val > high) {
-            root = root->left;
+        while(root != nullptr && (root->val<low || root->val>high)) {
+            if(root->val < low) {
+                root = root->right;
+            } else if(root->val > high) {
+                root = root->left;
+            }
         }
         if(root == nullptr) {
             return nullptr;
