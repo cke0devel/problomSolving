@@ -17,7 +17,7 @@ public:
             if(nums[i] == 0) continue;
             
             if(i+nums[i]+1 >= nums.size()) {
-                return true;
+                return p.empty() || i < p.front();
             }
             
             while(!p.empty()) {
