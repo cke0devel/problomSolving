@@ -1,19 +1,27 @@
 class Solution {
 public:
     bool canJump(vector<int>& nums) {
-        vector<bool> v(nums.size());
-        v[0] = true;
+        deque<int> p;
         
         for(int i=0; i<nums.size(); i++) {
-            if(v[i] == false) continue;
-            
-            for(int j=1; j<=nums[i]; j++) {
-                if(i+j >= nums.size()) break;
-                
-                v[i+j] = true;
+            if(nums[i] == 0) {
+                p.push_back(i);
             }
         }
         
-        return v.back();
+        for(int i=0; i<nums.size(); i++) {
+            while(!p.empty()) {
+                if(i + nums[i]-1 < p.front()) {
+                    break;
+                }
+                if(i >= p.front()) {
+                    return false;
+                }
+                
+                p.pop_front();
+            }
+        }
+        
+        return p.empty();
     }
 };
