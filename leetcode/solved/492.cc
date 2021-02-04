@@ -1,12 +1,12 @@
 class Solution {
 public:
-    vector<int> constructRectangle(int area) {
-        int W = 1;
-        
-        for(int w=1, e=sqrt(area)+1; w<e; w++) {
-            if(area%w == 0) W=w;
+    vector<int> constructRectangle(int area) {        
+        for(int w=sqrt(area); w>=1; w--) {
+            if(area%w == 0) {
+                return {area/w, w};
+            }
         }
         
-        return {area/W, W};
+        return {area, 1};
     }
 };
