@@ -27,7 +27,9 @@ public:
                 
                 while(node->next != nullptr) node = node->next;
                 node->next = nextNode;
-                nextNode->prev = node;
+                if(nextNode) {
+                    nextNode->prev = node;
+                }
             }
         }
         
