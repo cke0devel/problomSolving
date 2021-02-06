@@ -10,7 +10,7 @@ public:
                 n--;
             }
             
-            pp = p;
+            pp = flowerbed[i-1];
             p = flowerbed[i];
         }
         
