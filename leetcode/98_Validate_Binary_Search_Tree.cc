@@ -25,7 +25,13 @@ private:
             return false;
         }
         
-        return isValidBST(root->left, low, root->val-1) &&
-            isValidBST(root->right, root->val+1, high);
+        if(root->left && isValidBST(root->left, low, root->val-1)==false) {
+            return false;
+        }
+        if(root->right && isValidBST(root->right, root->val+1, high)==false) {
+            return false;
+        }
+        
+        return true;
     }
 };
