@@ -16,7 +16,7 @@ public:
     }
     
 private:
-    bool isValidBST(TreeNode *root, const int low, const int high) {
+    bool isValidBST(TreeNode *root, const long low, const long high) {
         if(root == nullptr) {
             return true;
         }
@@ -25,13 +25,7 @@ private:
             return false;
         }
         
-        if(root->left && isValidBST(root->left, low, root->val-1)==false) {
-            return false;
-        }
-        if(root->right && isValidBST(root->right, root->val+1, high)==false) {
-            return false;
-        }
-        
-        return true;
+        return isValidBST(root->left, low, root->val-1L) &&
+            isValidBST(root->right, root->val+1L, high);
     }
 };
