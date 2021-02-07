@@ -12,17 +12,20 @@
 class Solution {
 public:
     bool isValidBST(TreeNode* root) {
+        return isValidBST(root, numeric_limits<int>::min(), numeric_limits<int>::max());
+    }
+    
+private:
+    bool isValidBST(TreeNode *root, const int low, const int high) {
         if(root == nullptr) {
             return true;
         }
         
-        if(root->left && root->left->val >= root->val) {
-            return false;
-        }
-        if(root->right && root->right->val <= root->val) {
+        if(low > root->val || root->val > high) {
             return false;
         }
         
-        return isValidBST(root->left) && isValidBST(root->right);
+        return isValidBST(root->left, low, root->val-1) &&
+            isValidBST(root->right, root->val+1, high);
     }
 };
