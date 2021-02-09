@@ -12,11 +12,11 @@
 class Solution {
 public:
     int widthOfBinaryTree(TreeNode* root) {
-        map<int, pair<int,int>> widths;
+        map<int, pair<unsigned long long, unsigned long long>> widths;
         
         widthOfBinaryTree(root, 0, 1, widths);
         
-        int ans = 0;
+        unsigned long long ans = 0;
         for(const auto &e : widths) {
             ans = max(ans, e.second.second - e.second.first + 1);
         }
@@ -26,8 +26,8 @@ public:
     
 private:
     void widthOfBinaryTree(const TreeNode *root,
-                           const int depth, const int idx,
-                           map<int, pair<int,int>> &widths)
+                           const int depth, const unsigned long long idx,
+                           map<int, pair<unsigned long long, unsigned long long>> &widths)
     {
         if(root == nullptr) return;
         
