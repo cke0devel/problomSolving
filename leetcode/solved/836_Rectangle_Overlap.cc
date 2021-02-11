@@ -12,7 +12,7 @@ public:
         if(max(rec1[left], rec2[left]) >= min(rec1[right], rec2[right])) {
             return false;
         }
-        if(min(rec1[bottom], rec2[bottom]) >= max(rec1[top], rec2[top])) {
+        if(max(rec1[bottom], rec2[bottom]) >= min(rec1[top], rec2[top])) {
             return false;
         }
         
