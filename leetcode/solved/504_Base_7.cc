@@ -1,6 +1,10 @@
 class Solution {
 public:
     string convertToBase7(int num) {
+        if(num == 0) {
+            return "0";
+        }
+        
         const bool sign = (num>=0);
         num = abs(num);
         
