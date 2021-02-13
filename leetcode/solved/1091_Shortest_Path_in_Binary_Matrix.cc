@@ -1,7 +1,7 @@
 class Solution {
 public:
     int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
-        deque<tuple<int,int,int>> q = {tuple{1, 0, 0}};
+        deque<tuple<int,int,int>> q = {tuple{0, -1, -1}};
         
         const int H = grid.size();
         const int W = grid[0].size();
