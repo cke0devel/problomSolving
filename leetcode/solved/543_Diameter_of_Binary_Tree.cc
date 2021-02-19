@@ -14,7 +14,12 @@ public:
     int diameterOfBinaryTree(TreeNode* root) {
         if(root == nullptr) return 0;
         
-        return getDepth(root->left) + getDepth(root->right);
+        int ans = getDepth(root->left) + getDepth(root->right);
+        
+        ans = max(ans, diameterOfBinaryTree(root->left));
+        ans = max(ans, diameterOfBinaryTree(root->right));
+        
+        return ans;
     }
     
 private:
