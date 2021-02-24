@@ -17,9 +17,11 @@ public:
                 }
             }
             
-            if(matched) {
-                ans += strs[0][p];
+            if(matched == false) {
+                break;
             }
+            
+            ans += strs[0][p];
         }
         
         return ans;
