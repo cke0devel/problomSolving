@@ -6,6 +6,8 @@ public:
         for(const char c : s) {
             if(isalpha(c)) {
                 k += tolower(c);
+            } else if(isdigit(c)) {
+                k += c;
             }
         }
         
