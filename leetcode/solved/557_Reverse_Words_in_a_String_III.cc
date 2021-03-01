@@ -1,6 +1,8 @@
 class Solution {
 public:
     string reverseWords(string s) {
+        if(s.empty()) return s;
+        
         istringstream sin(s);
         
         string ans, t;
