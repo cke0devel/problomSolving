@@ -10,7 +10,7 @@ public:
         
         int ri=0, ci=0;
         for(int i=0; i<nums.size(); i++) {
-            for(int j=0; j<nums.size(); j++) {
+            for(int j=0; j<nums[0].size(); j++) {
                 mat[ri][ci] = nums[i][j];
                 
                 ci += 1;
