@@ -13,6 +13,10 @@ public:
         copy(istream_iterator<string>(sin), istream_iterator<string>(),
              back_inserter(words));
 
+        if(words.size() == 1) {
+            return words[0] + string(space, ' ');
+        }
+        
         const int blank = space / (words.size()-1);
         
         string ans;
