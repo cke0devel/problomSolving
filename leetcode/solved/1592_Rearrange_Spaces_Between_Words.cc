@@ -24,6 +24,7 @@ public:
             ans += word + string(min(blank, space), ' ');
             space -= blank;
         }
+        ans += string(max(0, space), ' ');
         
         return ans;
     }
