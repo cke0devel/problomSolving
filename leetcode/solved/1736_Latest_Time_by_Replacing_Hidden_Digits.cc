@@ -8,7 +8,7 @@ public:
             } else if(time[1]-'0' <= 3) {
                 time[0] = '2';
             } else {
-                time[1] = '1';
+                time[0] = '1';
             }
         }
         if(time[1]=='?') {
