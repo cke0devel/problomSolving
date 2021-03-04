@@ -19,7 +19,8 @@ public:
     }
     
 private:
-    bool isVowels(const char c) {
+    bool isVowels(char c) {
+        c = tolower(c);
         return c=='a' || c=='e' || c=='i' || c=='o' || c=='u';
     }
 };
