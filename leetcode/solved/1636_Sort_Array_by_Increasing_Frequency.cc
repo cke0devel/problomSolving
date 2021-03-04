@@ -11,7 +11,7 @@ public:
         sort(begin(v), end(v),
             [](const auto &lhs, const auto &rhs) {
                 if(lhs.second == rhs.second) {
-                    return lhs.first > rhs.second;
+                    return lhs.first > rhs.first;
                 }
                 return lhs.second < rhs.second;
             });
