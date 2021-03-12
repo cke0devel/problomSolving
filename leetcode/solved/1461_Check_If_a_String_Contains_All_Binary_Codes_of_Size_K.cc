@@ -12,13 +12,15 @@ public:
             ++it;
         }
         
-        set<int> sub = {bin};
+        vector<bool> sub(1<<k);
+        sub[bin] = true;
+
         while(it != end(s)) {
             bin = mask & ((bin<<1) | (*it -'0'));
-            sub.insert(bin);
+            sub[bin] = true;
             ++it;
         }
         
-        return sub.size() == (mask+1);
+        return find(begin(sub), end(sub), 0) == end(sub);
     }
 };
